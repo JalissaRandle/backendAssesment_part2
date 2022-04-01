@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>My website</title>
+     <link rel="stylesheet" href="style.css">
+ </head>
+ <body>
+    <body class="container">
+        <button id="complimentButton">Get a compliment</button>
+        <button id="fortunebtn">See your foutune</button>
+        <!-- <br>
+        <p>Enter your name here </p>
+        <input type="text">
+        <button id="textsubmit">submit </button> -->
+        <script>
+          document.getElementById("complimentButton").onclick = function () {
+            axios.get("http://localhost:4000/api/compliment/")
+                .then(function (response) {
+                  const data = response.data;
+                  alert(data);
+                });
+          };
+         document.getElementById("fortunebtn").onclick = function () {
+           axios.get("http://localhost:4000/api/fortune/")
+           .then (function (response) {
+              const dataF = response.data;
+              alert(dataF);
+    
+           });
+         };
+
+    
+        //  document.getElementById('textsubmit').onclick = function (){
+        //    axios.post("http://localhost:4000/api/submit/")
+        //  }
+    
+        </script>
+        </script>
+        <form>
+            <input 
+                type="text"
+                id="friendName"
+                placeholder="What's your friends name"  >
+            <br>
+            <input 
+                type="text"  
+                id="age"
+                placeholder="What's your friends age"
+            >
+            <br>
+            <input 
+                type="text"
+                id="year"
+                placeholder="How many years have you been friends">
+            <br>
+
+            <button>Add Friend</button>
+        </form>
+        <section id="friend-container"></section>
+    </main>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="main.js"></script>
+ </body>
+ </html>
